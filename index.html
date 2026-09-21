@@ -1,0 +1,1572 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>دعوة زفاف هيثم وسمية</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Tajawal:wght@400;500;700&family=Great+Vibes&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #8b7355;
+            --primary-dark: #725e44;
+            --accent-color: #d4af37;
+            --accent-light: #f3e5ab;
+            --bg-color: #fcfbf7;
+            --card-bg: #ffffff;
+            --soft-bg: #f8f4ec;
+            --text-color: #333333;
+            --muted-text: #666666;
+            --border-color: #f0e6d2;
+            --border-radius: 12px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background:
+                radial-gradient(circle at top, #ffffff 0%, var(--bg-color) 60%, #f5f0e7 100%);
+            color: var(--text-color);
+            min-height: 100vh;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        .lang-toggle-btn {
+            position: fixed;
+            top: 18px;
+            left: 18px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.92);
+            color: var(--primary-color);
+            border: 1px solid var(--accent-color);
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-family: 'Tajawal', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .lang-toggle-btn:hover {
+            background: var(--accent-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        body.ltr .lang-toggle-btn {
+            left: auto;
+            right: 18px;
+        }
+
+        .page-wrapper {
+            width: 100%;
+            max-width: 650px;
+            margin: 0 auto;
+            min-height: calc(100vh - 40px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .envelope-section {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 500px;
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .envelope-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .envelope-container {
+            position: relative;
+            width: min(360px, 85vw);
+            height: 235px;
+            background: linear-gradient(135deg, #ffffff 0%, #faf7ef 100%);
+            border: 1px solid var(--accent-color);
+            border-radius: 10px;
+            box-shadow:
+                0 20px 45px rgba(88, 67, 38, 0.14),
+                inset 0 0 20px rgba(212, 175, 55, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            overflow: hidden;
+            transition:
+                transform 0.8s cubic-bezier(.4, 0, .2, 1),
+                opacity 0.8s ease;
+        }
+
+        .envelope-front {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, #fff 0%, #f8f3e9 100%);
+            z-index: 1;
+        }
+
+        .envelope-front::before,
+        .envelope-front::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            width: 0;
+            height: 0;
+            border-style: solid;
+        }
+
+        .envelope-front::before {
+            left: 0;
+            border-width: 0 180px 125px 0;
+            border-color: transparent #f1eadb transparent transparent;
+        }
+
+        .envelope-front::after {
+            right: 0;
+            border-width: 125px 180px 0 0;
+            border-color: #f1eadb transparent transparent transparent;
+        }
+
+        .envelope-flap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: min(180px, 42.5vw) solid transparent;
+            border-right: min(180px, 42.5vw) solid transparent;
+            border-top: 125px solid #f6f0e4;
+            filter: drop-shadow(0 3px 4px rgba(0, 0, 0, 0.08));
+            transform-origin: top center;
+            transition: transform 0.8s ease;
+            z-index: 4;
+        }
+
+        .envelope-flap::after {
+            content: "";
+            position: absolute;
+            top: -124px;
+            left: min(-180px, -42.5vw);
+            width: 0;
+            height: 0;
+            border-left: min(180px, 42.5vw) solid transparent;
+            border-right: min(180px, 42.5vw) solid transparent;
+            border-top: 124px solid transparent;
+            border-top-color: rgba(212, 175, 55, 0.16);
+        }
+
+        .wax-seal {
+            position: absolute;
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            background:
+                radial-gradient(
+                    circle at 30% 30%,
+                    #ead48b,
+                    #d4af37 55%,
+                    #aa7c11 100%
+                );
+            border: 2px solid #b38d20;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 5;
+            box-shadow:
+                0 6px 14px rgba(80, 60, 20, 0.2),
+                inset 0 2px 5px rgba(255, 255, 255, 0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .wax-seal::before {
+            content: "";
+            position: absolute;
+            width: 58px;
+            height: 58px;
+            border: 1px dashed rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+        }
+
+        .seal-heart {
+            color: white;
+            font-size: 27px;
+            z-index: 2;
+        }
+
+        .wax-seal:hover {
+            transform: scale(1.08);
+        }
+
+        .envelope-hint {
+            margin-top: 32px;
+            color: var(--primary-color);
+            font-family: 'Amiri', serif;
+            font-size: 1rem;
+            animation: gentlePulse 2s infinite;
+        }
+
+        @keyframes gentlePulse {
+            0%, 100% {
+                opacity: 0.65;
+            }
+
+            50% {
+                opacity: 1;
+            }
+        }
+
+        .container {
+            display: none;
+            background-color: var(--card-bg);
+            max-width: 550px;
+            width: 100%;
+            padding: 40px 30px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.09);
+            border: 1px solid var(--border-color);
+            text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
+            transition:
+                opacity 0.9s ease,
+                transform 0.9s ease;
+            margin: 30px auto;
+        }
+
+        .container.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .crest {
+            color: var(--accent-color);
+            font-size: 1.9rem;
+            margin-bottom: 5px;
+        }
+
+        .quran-verse {
+            font-family: 'Amiri', serif;
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .header h1 {
+            font-family: 'Amiri', serif;
+            font-size: 2.3rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        /* =========================
+           COUPLE IMAGE
+        ========================== */
+
+        .couple-emblem {
+            width: 130px;
+            height: 100px;
+            margin: 10px auto 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50px;
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(212, 175, 55, 0.12) 0%,
+                    rgba(212, 175, 55, 0) 70%
+                );
+            border: 1px solid #ead9a8;
+            overflow: hidden;
+        }
+
+        .couple-image {
+            width: 88px;
+            height: 88px;
+            object-fit: cover;
+            border-radius: 50%;
+            display: block;
+            border: 2px solid var(--accent-color);
+        }
+
+        .wedding-date {
+            display: inline-block;
+            background-color: #f4eee3;
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding: 6px 16px;
+            border-radius: 20px;
+            margin-bottom: 15px;
+        }
+
+        .header p {
+            font-size: 1rem;
+            color: var(--muted-text);
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin: 25px 0;
+            padding: 18px 8px;
+            border-top: 1px solid #eadfca;
+            border-bottom: 1px solid #eadfca;
+        }
+
+        .timer-unit {
+            flex: 1;
+            max-width: 80px;
+            padding: 5px;
+        }
+
+        .timer-unit .num {
+            display: block;
+            color: var(--accent-color);
+            font-size: 1.55rem;
+            font-weight: 700;
+        }
+
+        .timer-unit label {
+            display: block;
+            color: var(--primary-color);
+            font-size: 0.72rem;
+            margin-top: 3px;
+        }
+
+        .calendar-container {
+            max-width: 320px;
+            margin: 20px auto;
+            padding: 16px;
+            background: var(--soft-bg);
+            border: 1px solid #eadfca;
+            border-radius: 10px;
+        }
+
+        .calendar-month {
+            font-family: 'Amiri', serif;
+            color: var(--primary-color);
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 13px;
+        }
+
+        .calendar-days-header,
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+            text-align: center;
+        }
+
+        .calendar-days-header {
+            color: #9b896e;
+            font-size: 0.72rem;
+            font-weight: 700;
+            margin-bottom: 7px;
+        }
+
+        .calendar-day {
+            color: #666;
+            padding: 6px 0;
+            font-size: 0.78rem;
+            border-radius: 50%;
+            transition: all 0.2s ease;
+        }
+
+        .calendar-day.highlight {
+            background: var(--accent-color);
+            color: white;
+            font-weight: 700;
+            box-shadow: 0 3px 8px rgba(212, 175, 55, 0.35);
+            transform: scale(1.08);
+        }
+
+        .calendar-day.empty {
+            visibility: hidden;
+        }
+
+        .details-block {
+            font-size: 0.98rem;
+            line-height: 2;
+            color: var(--muted-text);
+            margin: 25px 0;
+        }
+
+        .details-block strong {
+            color: var(--primary-color);
+        }
+
+        .location-details {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 7px;
+            margin-top: 8px;
+        }
+
+        .location-text {
+            font-size: 0.85rem;
+            color: #777;
+            line-height: 1.8;
+        }
+
+        .map-btn,
+        .calendar-btn {
+            display: inline-block;
+            text-decoration: none;
+            color: var(--primary-color);
+            border: 1px solid var(--accent-color);
+            background: #fffdf8;
+            border-radius: 20px;
+            padding: 7px 15px;
+            font-size: 0.78rem;
+            transition: all 0.3s ease;
+        }
+
+        .map-btn:hover,
+        .calendar-btn:hover {
+            background: var(--accent-color);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 12px rgba(212, 175, 55, 0.2);
+        }
+
+        .calendar-btn {
+            border-radius: 8px;
+            margin-bottom: 5px;
+        }
+
+        .section-divider {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 25px 0;
+        }
+
+        .section-divider::before,
+        .section-divider::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #eadfca;
+        }
+
+        .section-divider span {
+            color: var(--accent-color);
+            font-size: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: right;
+        }
+
+        body.ltr .form-group {
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #444;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #dcd6cd;
+            border-radius: 8px;
+            font-family: 'Tajawal', sans-serif;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            background-color: #fafaf8;
+            color: #333;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            background-color: #fff;
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.08);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .guest-count-wrapper {
+            display: none;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-5px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        button.submit-btn {
+            width: 100%;
+            padding: 14px;
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--primary-color),
+                    #9b805d
+                );
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Tajawal', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        button.submit-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(114, 94, 68, 0.2);
+        }
+
+        button.submit-btn:disabled {
+            opacity: 0.7;
+            cursor: wait;
+            transform: none;
+        }
+
+        .status-message {
+            margin-top: 20px;
+            padding: 12px;
+            border-radius: 8px;
+            display: none;
+            font-weight: 500;
+            line-height: 1.7;
+        }
+
+        .status-message.success {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            border: 1px solid #c8e6c9;
+        }
+
+        .status-message.error {
+            background-color: #ffebee;
+            color: #c62828;
+            border: 1px solid #ffcdd2;
+        }
+
+        body.ltr {
+            direction: ltr;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        body.ltr .quran-verse {
+            font-family: 'Amiri', serif;
+        }
+
+        body.ltr .header h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3rem;
+        }
+
+        body.ltr .calendar-days-header,
+        body.ltr .calendar-grid {
+            direction: ltr;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 12px;
+            }
+
+            .page-wrapper {
+                min-height: calc(100vh - 24px);
+            }
+
+            .container {
+                padding: 30px 18px;
+                margin: 20px auto;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            body.ltr .header h1 {
+                font-size: 2.6rem;
+            }
+
+            .quran-verse {
+                font-size: 1rem;
+            }
+
+            .countdown {
+                gap: 2px;
+            }
+
+            .timer-unit .num {
+                font-size: 1.3rem;
+            }
+
+            .timer-unit label {
+                font-size: 0.65rem;
+            }
+
+            .calendar-container {
+                max-width: 100%;
+            }
+
+            .lang-toggle-btn {
+                top: 10px;
+                left: 10px;
+            }
+
+            body.ltr .lang-toggle-btn {
+                right: 10px;
+                left: auto;
+            }
+
+            .couple-emblem {
+                width: 115px;
+                height: 90px;
+            }
+
+            .couple-image {
+                width: 78px;
+                height: 78px;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .container {
+                padding: 25px 14px;
+            }
+
+            .header h1 {
+                font-size: 1.75rem;
+            }
+
+            body.ltr .header h1 {
+                font-size: 2.2rem;
+            }
+
+            .timer-unit .num {
+                font-size: 1.15rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <button class="lang-toggle-btn" id="langToggle">English</button>
+
+    <div class="page-wrapper">
+
+        <section class="envelope-section" id="envelopeSection">
+
+            <div class="envelope-wrapper">
+
+                <div class="envelope-container" id="envelopeContainer">
+
+                    <div class="envelope-front"></div>
+
+                    <div class="envelope-flap" id="envelopeFlap"></div>
+
+                    <div class="wax-seal">
+                        <span class="seal-heart">♥</span>
+                    </div>
+
+                </div>
+
+                <div class="envelope-hint" id="envelopeHint">
+                    اضغط على الختم لفتح الدعوة
+                </div>
+
+            </div>
+
+        </section>
+
+        <main class="container" id="invitationCard">
+
+            <div class="crest">♛</div>
+
+            <div class="quran-verse" id="quranVerse">
+                "وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ
+                أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم
+                مَّوَدَّةً وَرَحْمَةً"
+            </div>
+
+            <div class="header">
+
+                <div class="couple-emblem">
+                    <img
+                        src="MOMO2564.jpg"
+                        alt="Haitham & Soumaya"
+                        class="couple-image"
+                    >
+                </div>
+
+                <h1 id="coupleTitle">
+                    دعوة زفاف هيثم وسمية 💍
+                </h1>
+
+                <div class="wedding-date" id="weddingDate">
+                    📅 12 / 10 / 2026
+                </div>
+
+                <p id="introText">
+                    يسعدنا ويشرفنا دعوتكم لمشاركتنا فرحتنا.
+                    يرجى تأكيد الحضور عبر ملء النموذج التالي.
+                </p>
+
+            </div>
+
+            <div class="countdown">
+
+                <div class="timer-unit">
+                    <span class="num" id="days">00</span>
+                    <label id="lblDays">أيام</label>
+                </div>
+
+                <div class="timer-unit">
+                    <span class="num" id="hours">00</span>
+                    <label id="lblHours">ساعات</label>
+                </div>
+
+                <div class="timer-unit">
+                    <span class="num" id="minutes">00</span>
+                    <label id="lblMinutes">دقائق</label>
+                </div>
+
+                <div class="timer-unit">
+                    <span class="num" id="seconds">00</span>
+                    <label id="lblSeconds">ثواني</label>
+                </div>
+
+            </div>
+
+            <div class="calendar-container">
+
+                <div class="calendar-month" id="calendarMonth">
+                    أكتوبر ٢٠٢٦
+                </div>
+
+                <div class="calendar-days-header" id="calendarHeader">
+                    <span>أ</span>
+                    <span>إ</span>
+                    <span>ث</span>
+                    <span>أ</span>
+                    <span>خ</span>
+                    <span>ج</span>
+                    <span>س</span>
+                </div>
+
+                <div class="calendar-grid">
+
+                    <span class="calendar-day empty"></span>
+                    <span class="calendar-day empty"></span>
+                    <span class="calendar-day empty"></span>
+                    <span class="calendar-day empty"></span>
+
+                    <span class="calendar-day">1</span>
+                    <span class="calendar-day">2</span>
+                    <span class="calendar-day">3</span>
+
+                    <span class="calendar-day">4</span>
+                    <span class="calendar-day">5</span>
+                    <span class="calendar-day">6</span>
+                    <span class="calendar-day">7</span>
+                    <span class="calendar-day">8</span>
+                    <span class="calendar-day">9</span>
+                    <span class="calendar-day">10</span>
+
+                    <span class="calendar-day">11</span>
+                    <span class="calendar-day highlight">12</span>
+                    <span class="calendar-day">13</span>
+                    <span class="calendar-day">14</span>
+                    <span class="calendar-day">15</span>
+                    <span class="calendar-day">16</span>
+                    <span class="calendar-day">17</span>
+
+                    <span class="calendar-day">18</span>
+                    <span class="calendar-day">19</span>
+                    <span class="calendar-day">20</span>
+                    <span class="calendar-day">21</span>
+                    <span class="calendar-day">22</span>
+                    <span class="calendar-day">23</span>
+                    <span class="calendar-day">24</span>
+
+                    <span class="calendar-day">25</span>
+                    <span class="calendar-day">26</span>
+                    <span class="calendar-day">27</span>
+                    <span class="calendar-day">28</span>
+                    <span class="calendar-day">29</span>
+                    <span class="calendar-day">30</span>
+                    <span class="calendar-day">31</span>
+
+                </div>
+
+            </div>
+
+            <a
+                id="calendarBtn"
+                class="calendar-btn"
+                target="_blank"
+                href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Soumaya+%26+Haitham+Wedding&dates=20261012T190000Z/20261012T220000Z&details=Wedding+Celebration&location=Le+Ciel+Hotel%2C+7+Abd+El-Wahab+El-Qady%2C+Nasr+City%2C+Cairo"
+            >
+                📅 إضافة للتقويم
+            </a>
+
+            <div class="details-block">
+
+                <p>
+                    <strong id="lblTime">الوقت:</strong>
+                    <span id="valTime">السابعة مساءً</span>
+                </p>
+
+                <p style="margin-top: 10px;">
+                    <strong id="lblVenue">المكان:</strong>
+                    <span id="valVenue">فندق لو سيل (Le Ciel Hotel)</span>
+                </p>
+
+                <div class="location-details">
+
+                    <span
+                        class="location-text"
+                        id="valAddress"
+                    >
+                        ٧ شارع عبد الوهاب القاضي، طريق صلاح سالم،
+                        مدينة نصر، القاهرة
+                    </span>
+
+                    <a
+                        class="map-btn"
+                        id="btnMap"
+                        target="_blank"
+                        href="https://maps.google.com/?q=Le+Ciel+Hotel+Nasr+City+Cairo"
+                    >
+                        📍 فتح الموقع على الخريطة
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="section-divider">
+                <span>❦</span>
+            </div>
+
+            <form
+                id="rsvpForm"
+                action="https://formspree.io/f/moevevrk"
+                method="POST"
+            >
+
+                <div class="form-group">
+
+                    <label for="fullName" id="nameLabel">
+                        الاسم بالكامل (الثنائي على الأقل) *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="fullName"
+                        name="الاسم"
+                        placeholder="مثال: أحمد محمد"
+                        required
+                    >
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="attendance" id="attendanceLabel">
+                        تأكيد الحضور *
+                    </label>
+
+                    <select
+                        id="attendance"
+                        name="تأكيد الحضور"
+                        required
+                    >
+
+                        <option
+                            value=""
+                            disabled
+                            selected
+                            id="attendanceDefault"
+                        >
+                            اختر موقفك من الحضور
+                        </option>
+
+                        <option
+                            value="يشرفني الحضور"
+                            id="attendanceYes"
+                        >
+                            يشرفني الحضور
+                        </option>
+
+                        <option
+                            value="أعتذر عن الحضور"
+                            id="attendanceNo"
+                        >
+                            أعتذر عن الحضور
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <div
+                    class="form-group guest-count-wrapper"
+                    id="guestCountGroup"
+                >
+
+                    <label for="guestCount" id="guestCountLabel">
+                        عدد الحضور *
+                    </label>
+
+                    <input
+                        type="number"
+                        id="guestCount"
+                        name="عدد الحضور"
+                        min="1"
+                        max="10"
+                        value="1"
+                        placeholder="أدخل عدد الأشخاص"
+                    >
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="comments" id="commentsLabel">
+                        ملاحظات أو تهنئة للعروسين
+                    </label>
+
+                    <textarea
+                        id="comments"
+                        name="الملاحظات"
+                        placeholder="اكتب كلمتك هنا..."
+                    ></textarea>
+
+                </div>
+
+                <button
+                    type="submit"
+                    class="submit-btn"
+                    id="submitBtn"
+                >
+                    إرسال
+                </button>
+
+            </form>
+
+            <div
+                id="statusMessage"
+                class="status-message"
+            ></div>
+
+        </main>
+
+    </div>
+
+    <script>
+
+        const translations = {
+
+            ar: {
+
+                langButton: "English",
+
+                envelopeHint:
+                    "اضغط على الختم لفتح الدعوة",
+
+                quran:
+                    "\"وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً\"",
+
+                title:
+                    "دعوة زفاف هيثم وسمية 💍",
+
+                date:
+                    "📅 12 / 10 / 2026",
+
+                intro:
+                    "يسعدنا ويشرفنا دعوتكم لمشاركتنا فرحتنا. يرجى تأكيد الحضور عبر ملء النموذج التالي.",
+
+                days: "أيام",
+                hours: "ساعات",
+                minutes: "دقائق",
+                seconds: "ثواني",
+
+                month: "أكتوبر ٢٠٢٦",
+
+                calendar:
+                    "📅 إضافة للتقويم",
+
+                timeLabel:
+                    "الوقت:",
+
+                time:
+                    "السابعة مساءً",
+
+                venueLabel:
+                    "المكان:",
+
+                venue:
+                    "فندق لو سيل (Le Ciel Hotel)",
+
+                address:
+                    "٧ شارع عبد الوهاب القاضي، طريق صلاح سالم، مدينة نصر، القاهرة",
+
+                map:
+                    "📍 فتح الموقع على الخريطة",
+
+                nameLabel:
+                    "الاسم بالكامل (الثنائي على الأقل) *",
+
+                namePlaceholder:
+                    "مثال: أحمد محمد",
+
+                attendanceLabel:
+                    "تأكيد الحضور *",
+
+                attendanceDefault:
+                    "اختر موقفك من الحضور",
+
+                attendanceYes:
+                    "يشرفني الحضور",
+
+                attendanceNo:
+                    "أعتذر عن الحضور",
+
+                guestCountLabel:
+                    "عدد الحضور *",
+
+                guestCountPlaceholder:
+                    "أدخل عدد الأشخاص",
+
+                commentsLabel:
+                    "ملاحظات أو تهنئة للعروسين",
+
+                commentsPlaceholder:
+                    "اكتب كلمتك هنا...",
+
+                submit:
+                    "إرسال",
+
+                sending:
+                    "جاري الإرسال...",
+
+                success:
+                    "تم إرسال تأكيد الحضور بنجاح! شكراً لك.",
+
+                error:
+                    "حدث خطأ أثناء الإرسال. يرجى المحاولة مرة أخرى.",
+
+                nameError:
+                    "يرجى كتابة الاسم الثنائي على الأقل (الاسم واسم العائلة)."
+
+            },
+
+            en: {
+
+                langButton: "العربية",
+
+                envelopeHint:
+                    "Click the seal to open the invitation",
+
+                quran:
+                    "\"And among His signs is that He created for you spouses from yourselves so that you may find tranquility in them, and He placed between you affection and mercy.\"",
+
+                title:
+                    "Haitham & Soumaya Wedding 💍",
+
+                date:
+                    "📅 October 12, 2026",
+
+                intro:
+                    "We are delighted and honored to invite you to share our special day. Please confirm your attendance below.",
+
+                days: "Days",
+                hours: "Hours",
+                minutes: "Minutes",
+                seconds: "Seconds",
+
+                month: "October 2026",
+
+                calendar:
+                    "📅 Add to Google Calendar",
+
+                timeLabel:
+                    "TIME:",
+
+                time:
+                    "Seven O'Clock in the Evening",
+
+                venueLabel:
+                    "VENUE:",
+
+                venue:
+                    "Le Ciel Hotel",
+
+                address:
+                    "7 Abd El-Wahab El-Qady, Salah Salem St, Nasr City, Cairo",
+
+                map:
+                    "📍 Open Location on Maps",
+
+                nameLabel:
+                    "Full Name (at least two names) *",
+
+                namePlaceholder:
+                    "Example: Ahmed Mohamed",
+
+                attendanceLabel:
+                    "Attendance Confirmation *",
+
+                attendanceDefault:
+                    "Choose your attendance",
+
+                attendanceYes:
+                    "I will attend",
+
+                attendanceNo:
+                    "I apologize, I cannot attend",
+
+                guestCountLabel:
+                    "Number of Guests *",
+
+                guestCountPlaceholder:
+                    "Enter number of guests",
+
+                commentsLabel:
+                    "Message or congratulations",
+
+                commentsPlaceholder:
+                    "Write your message here...",
+
+                submit:
+                    "Send",
+
+                sending:
+                    "Sending...",
+
+                success:
+                    "Your RSVP was sent successfully! Thank you.",
+
+                error:
+                    "Something went wrong. Please try again.",
+
+                nameError:
+                    "Please enter at least two names."
+
+            }
+
+        };
+
+        let currentLang = "ar";
+
+        function updateLanguage(lang) {
+
+            currentLang = lang;
+
+            const t = translations[lang];
+
+            if (lang === "ar") {
+
+                document.documentElement.lang = "ar";
+                document.documentElement.dir = "rtl";
+
+                document.body.classList.remove("ltr");
+
+            } else {
+
+                document.documentElement.lang = "en";
+                document.documentElement.dir = "ltr";
+
+                document.body.classList.add("ltr");
+
+            }
+
+            document.getElementById("langToggle").textContent =
+                t.langButton;
+
+            document.getElementById("envelopeHint").textContent =
+                t.envelopeHint;
+
+            document.getElementById("quranVerse").textContent =
+                t.quran;
+
+            document.getElementById("coupleTitle").textContent =
+                t.title;
+
+            document.getElementById("weddingDate").textContent =
+                t.date;
+
+            document.getElementById("introText").textContent =
+                t.intro;
+
+            document.getElementById("lblDays").textContent =
+                t.days;
+
+            document.getElementById("lblHours").textContent =
+                t.hours;
+
+            document.getElementById("lblMinutes").textContent =
+                t.minutes;
+
+            document.getElementById("lblSeconds").textContent =
+                t.seconds;
+
+            document.getElementById("calendarMonth").textContent =
+                t.month;
+
+            document.getElementById("calendarBtn").textContent =
+                t.calendar;
+
+            document.getElementById("lblTime").textContent =
+                t.timeLabel;
+
+            document.getElementById("valTime").textContent =
+                t.time;
+
+            document.getElementById("lblVenue").textContent =
+                t.venueLabel;
+
+            document.getElementById("valVenue").textContent =
+                t.venue;
+
+            document.getElementById("valAddress").textContent =
+                t.address;
+
+            document.getElementById("btnMap").textContent =
+                t.map;
+
+            document.getElementById("nameLabel").textContent =
+                t.nameLabel;
+
+            document.getElementById("fullName").placeholder =
+                t.namePlaceholder;
+
+            document.getElementById("attendanceLabel").textContent =
+                t.attendanceLabel;
+
+            document.getElementById("attendanceDefault").textContent =
+                t.attendanceDefault;
+
+            document.getElementById("attendanceYes").textContent =
+                t.attendanceYes;
+
+            document.getElementById("attendanceNo").textContent =
+                t.attendanceNo;
+
+            document.getElementById("guestCountLabel").textContent =
+                t.guestCountLabel;
+
+            document.getElementById("guestCount").placeholder =
+                t.guestCountPlaceholder;
+
+            document.getElementById("commentsLabel").textContent =
+                t.commentsLabel;
+
+            document.getElementById("comments").placeholder =
+                t.commentsPlaceholder;
+
+            document.getElementById("submitBtn").textContent =
+                t.submit;
+        }
+
+        document
+            .getElementById("langToggle")
+            .addEventListener("click", () => {
+
+                updateLanguage(
+                    currentLang === "ar" ? "en" : "ar"
+                );
+
+            });
+
+        const envelopeContainer =
+            document.getElementById("envelopeContainer");
+
+        const envelopeSection =
+            document.getElementById("envelopeSection");
+
+        const envelopeFlap =
+            document.getElementById("envelopeFlap");
+
+        const invitationCard =
+            document.getElementById("invitationCard");
+
+        envelopeContainer.addEventListener("click", () => {
+
+            envelopeFlap.style.transform =
+                "rotateX(180deg)";
+
+            setTimeout(() => {
+
+                envelopeSection.style.opacity = "0";
+
+                envelopeSection.style.transform =
+                    "scale(0.8)";
+
+            }, 450);
+
+            setTimeout(() => {
+
+                envelopeSection.style.display = "none";
+
+                invitationCard.style.display = "block";
+
+                requestAnimationFrame(() => {
+
+                    invitationCard.classList.add("show");
+
+                });
+
+            }, 1050);
+
+        });
+
+        const eventTime =
+            new Date("October 12, 2026 19:00:00").getTime();
+
+        function updateCountdown() {
+
+            const now = new Date().getTime();
+
+            const difference = eventTime - now;
+
+            if (difference <= 0) {
+
+                document.getElementById("days").textContent = "00";
+                document.getElementById("hours").textContent = "00";
+                document.getElementById("minutes").textContent = "00";
+                document.getElementById("seconds").textContent = "00";
+
+                return;
+            }
+
+            const days =
+                Math.floor(
+                    difference / (1000 * 60 * 60 * 24)
+                );
+
+            const hours =
+                Math.floor(
+                    (difference % (1000 * 60 * 60 * 24)) /
+                    (1000 * 60 * 60)
+                );
+
+            const minutes =
+                Math.floor(
+                    (difference % (1000 * 60 * 60)) /
+                    (1000 * 60)
+                );
+
+            const seconds =
+                Math.floor(
+                    (difference % (1000 * 60)) /
+                    1000
+                );
+
+            document.getElementById("days").textContent =
+                String(days).padStart(2, "0");
+
+            document.getElementById("hours").textContent =
+                String(hours).padStart(2, "0");
+
+            document.getElementById("minutes").textContent =
+                String(minutes).padStart(2, "0");
+
+            document.getElementById("seconds").textContent =
+                String(seconds).padStart(2, "0");
+
+        }
+
+        updateCountdown();
+
+        setInterval(updateCountdown, 1000);
+
+        const attendance =
+            document.getElementById("attendance");
+
+        const guestCountGroup =
+            document.getElementById("guestCountGroup");
+
+        const guestCount =
+            document.getElementById("guestCount");
+
+        attendance.addEventListener("change", function () {
+
+            if (this.value === "يشرفني الحضور") {
+
+                guestCountGroup.style.display = "block";
+
+                guestCount.required = true;
+
+            } else {
+
+                guestCountGroup.style.display = "none";
+
+                guestCount.required = false;
+
+                guestCount.value = "1";
+
+            }
+
+        });
+
+        const form =
+            document.getElementById("rsvpForm");
+
+        const statusMessage =
+            document.getElementById("statusMessage");
+
+        const submitBtn =
+            document.getElementById("submitBtn");
+
+        form.addEventListener("submit", async function (event) {
+
+            event.preventDefault();
+
+            const name =
+                document.getElementById("fullName")
+                    .value
+                    .trim();
+
+            const nameWords =
+                name.split(/\s+/);
+
+            if (nameWords.length < 2) {
+
+                statusMessage.className =
+                    "status-message error";
+
+                statusMessage.textContent =
+                    translations[currentLang].nameError;
+
+                statusMessage.style.display = "block";
+
+                return;
+            }
+
+            submitBtn.disabled = true;
+
+            submitBtn.textContent =
+                translations[currentLang].sending;
+
+            statusMessage.style.display = "none";
+
+            const data =
+                new FormData(form);
+
+            try {
+
+                const response =
+                    await fetch(
+                        form.action,
+                        {
+                            method: form.method,
+                            body: data,
+                            headers: {
+                                "Accept":
+                                    "application/json"
+                            }
+                        }
+                    );
+
+                if (!response.ok) {
+                    throw new Error("Submission failed");
+                }
+
+                statusMessage.className =
+                    "status-message success";
+
+                statusMessage.textContent =
+                    translations[currentLang].success;
+
+                statusMessage.style.display = "block";
+
+                form.reset();
+
+                guestCountGroup.style.display = "none";
+
+                guestCount.required = false;
+
+                statusMessage.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center"
+                });
+
+            } catch (error) {
+
+                statusMessage.className =
+                    "status-message error";
+
+                statusMessage.textContent =
+                    translations[currentLang].error;
+
+                statusMessage.style.display = "block";
+
+            } finally {
+
+                submitBtn.disabled = false;
+
+                submitBtn.textContent =
+                    translations[currentLang].submit;
+
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>
